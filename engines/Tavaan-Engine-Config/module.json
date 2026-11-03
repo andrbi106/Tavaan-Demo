@@ -1,0 +1,33 @@
+{
+  "id": "tavaan.engine.config",
+  "type": "engine",
+  "name": "Config",
+  "title_fa": "پیکربندی و محیط",
+  "version": "0.1.0",
+  "namespace": "Tavaan\\Engine\\Config\\",
+  "autoload": {
+    "psr-4": {
+      "Tavaan\\Engine\\Config\\": "src/"
+    }
+  },
+  "providers": [
+    "Tavaan\\Engine\\Config\\ConfigServiceProvider"
+  ],
+  "requires": {
+    "php": ">=8.2",
+    "engines": ["container"]
+  },
+  "config": {
+    "file": "config/config.php",
+    "key": "config"
+  },
+  "tables": [],
+  "commands": [
+    "config:cache"
+  ],
+  "facade": {
+    "name": "Config",
+    "accessor": "config"
+  },
+  "docs": "docs/03-engines/config.md"
+}

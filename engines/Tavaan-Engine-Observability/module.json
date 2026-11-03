@@ -1,0 +1,20 @@
+{
+  "id": "tavaan.engine.observability",
+  "type": "engine",
+  "name": "Observability",
+  "title_fa": "رصدپذیری",
+  "version": "0.1.0",
+  "namespace": "Tavaan\\Engine\\Observability\\",
+  "autoload": {
+    "psr-4": {
+      "Tavaan\\Engine\\Observability\\": "src/"
+    }
+  },
+  "providers": ["Tavaan\\Engine\\Observability\\ObservabilityServiceProvider"],
+  "requires": {"php": ">=8.2", "engines": ["config", "log"]},
+  "config": {"file": "config/observability.php", "key": "observability"},
+  "tables": [],
+  "commands": [],
+  "facade": {"name": "Metrics", "accessor": "metrics"},
+  "docs": "docs/03-engines/observability.md"
+}

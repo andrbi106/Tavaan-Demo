@@ -1,0 +1,27 @@
+{
+  "id": "tavaan.engine.error",
+  "type": "engine",
+  "name": "Error",
+  "title_fa": "مدیریت خطا",
+  "version": "0.1.0",
+  "namespace": "Tavaan\\Engine\\Error\\",
+  "autoload": {
+    "psr-4": {
+      "Tavaan\\Engine\\Error\\": "src/"
+    }
+  },
+  "providers": [
+    "Tavaan\\Engine\\Error\\ErrorServiceProvider"
+  ],
+  "requires": {
+    "php": ">=8.2",
+    "engines": ["config", "log"]
+  },
+  "config": {
+    "file": "config/error.php",
+    "key": "error"
+  },
+  "tables": [],
+  "commands": [],
+  "docs": "docs/03-engines/error.md"
+}

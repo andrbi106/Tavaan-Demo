@@ -1,0 +1,9 @@
+{
+    "id": "tavaan.core",
+    "name": "Core",
+    "version": "0.1.0",
+    "description": "Tavaan Framework Core — base contracts, exceptions, and shared infrastructure for all engines",
+    "namespace": "Tavaan\\Core",
+    "type": "core",
+    "priority": "P0"
+}

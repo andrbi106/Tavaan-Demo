@@ -1,0 +1,14 @@
+{
+    "name": "andrbi106/tavaan-engine-core",
+    "description": "Tavaan Framework Core — base classes, contracts, exceptions, and shared infrastructure for all engines",
+    "type": "library",
+    "license": "MIT",
+    "require": {
+        "php": ">=8.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "Tavaan\\Core\\": "src/"
+        }
+    }
+}
