@@ -1,0 +1,65 @@
+{
+    "$schema": "https://docs.tavaan.dev/schemas/project.v1.json",
+    "name": "tavaan-demo",
+    "title_fa": "تَوان — نمایشی",
+    "version": "0.0.1",
+    "php": ">=8.2.0",
+    "environment": {
+        "default": "development",
+        "debug": true,
+        "timezone": "Asia/Tehran",
+        "locale": "fa",
+        "fallback_locale": "en"
+    },
+    "architecture": "modular-monolith",
+    "paths": {
+        "core": "core",
+        "engine-core": "engine-core",
+        "engines": "engines",
+        "config": "config",
+        "app": "app",
+        "public": "public",
+        "views": "resources/views",
+        "lang": "resources/lang",
+        "routes": "routes",
+        "storage": "storage"
+    },
+    "core": {
+        "provider": "andrbi106/tavaan-core",
+        "source": "core",
+        "bootstrap": "bootstrap.php"
+    },
+    "engine_core": {
+        "provider": "andrbi106/tavaan-engine-core",
+        "source": "engine-core"
+    },
+    "engines": {
+        "required": [
+            "container",
+            "config",
+            "event",
+            "error",
+            "log",
+            "console"
+        ],
+        "optional": [
+            "pipeline",
+            "compat",
+            "optimizer",
+            "module",
+            "test"
+        ]
+    },
+    "providers": "config/providers.php",
+    "scripts": {
+        "dev": [
+            "php bin/tvn serve"
+        ]
+    },
+    "security": {
+        "plugins_signature_required": false,
+        "allowed_plugin_vendors": [
+            "tavaan"
+        ]
+    }
+}

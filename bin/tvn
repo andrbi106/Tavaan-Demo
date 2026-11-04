@@ -1,0 +1,100 @@
+#!/usr/bin/env php
+<?php
+
+/**
+ * تَوان | Tavaan — CLI Entry Point (Demo v0.0.1)
+ *
+ * دستورات:
+ *   php bin/tvn serve          سرور توسعه
+ *   php bin/tvn engines        لیست موتورها
+ *   php bin/tvn info           اطلاعات سیستم
+ */
+
+declare(strict_types=1);
+
+require dirname(__DIR__) . '/bootstrap.php';
+
+use Tavaan\Core\Application\ApplicationBuilder;
+
+$app = ApplicationBuilder::create(TVN_BASE_PATH)
+    ->forConsole()
+    ->boot();
+
+$command = $argv[1] ?? 'info';
+
+// ─── دستورات ──────────────────────────────────────────────────────────────
+
+switch ($command) {
+    case 'serve':
+        $host = '127.0.0.1';
+        $port = 8000;
+        echo "\n  تَوان | Tavaan v0.0.1 — سرور توسعه\n\n";
+        echo "  آدرس: http://{$host}:{$port}\n\n";
+        echo "  برای توقف: Ctrl+C\n\n";
+        passthru("php -S {$host}:{$port} -t " . escapeshellarg(TVN_BASE_PATH . '/public'));
+        break;
+
+    case 'engines':
+        echo "\n  تَوان | Tavaan v0.0.1 — لیست موتورها\n\n";
+        $enginesPath = TVN_BASE_PATH . '/engines';
+        $count = 0;
+        if (is_dir($enginesPath)) {
+            foreach (new \DirectoryIterator($enginesPath) as $entry) {
+                if ($entry->isDot() || !$entry->isDir()) continue;
+                $ej = $entry->getPathname() . '/engine.json';
+                if (is_file($ej)) {
+                    $data = json_decode(file_get_contents($ej), true);
+                    $name = $data['name'] ?? $entry->getFilename();
+                    $title = $data['title_fa'] ?? '';
+                    $version = $data['version'] ?? '0.0.0';
+                    $class = $data['class'] ?? '—';
+                    printf("  %-20s v%-8s %s\n", $name, $version, $title);
+                    $count++;
+                }
+            }
+        }
+        echo "\n  مجموع: {$count} موتور\n\n";
+        break;
+
+    case 'info':
+        echo "\n  تَوان | Tavaan — اطلاعات سیستم\n\n";
+        echo "  نسخهٔ فریمورک:  0.0.1\n";
+        echo "  نسخهٔ PHP:      " . PHP_VERSION . "\n";
+        echo "  مسیر ریشه:     " . TVN_BASE_PATH . "\n";
+        echo "  زمان اجرا:     " . date('Y-m-d H:i:s') . "\n";
+
+        // شمارش فایل‌ها
+        $coreFiles = count(glob(TVN_BASE_PATH . '/core/*.php') ?: []);
+        $engineCoreFiles = count(glob(TVN_BASE_PATH . '/engine-core/*.php') ?: []);
+        echo "  هستهٔ فریمورک:  {$coreFiles} فایل (core/)\n";
+        echo "  موتور والد:    {$engineCoreFiles} فایل (engine-core/)\n";
+
+        // شمارش موتورها
+        $enginesPath = TVN_BASE_PATH . '/engines';
+        $engineCount = 0;
+        if (is_dir($enginesPath)) {
+            foreach (new \DirectoryIterator($enginesPath) as $entry) {
+                if ($entry->isDot() || !$entry->isDir()) continue;
+                if (is_file($entry->getPathname() . '/engine.json')) {
+                    $engineCount++;
+                }
+            }
+        }
+        echo "  موتورهای فرزند: {$engineCount} موتور (engines/)\n";
+        echo "\n";
+        break;
+
+    case 'version':
+        echo "Tavaan v0.0.1\n";
+        break;
+
+    default:
+        echo "\n  تَوان | Tavaan v0.0.1 — CLI\n\n";
+        echo "  دستورات:\n";
+        echo "    serve     سرور توسعه (php -S 127.0.0.1:8000)\n";
+        echo "    engines   لیست موتورهای کشف‌شده\n";
+        echo "    info      اطلاعات سیستم\n";
+        echo "    version   نسخهٔ فریمورک\n";
+        echo "\n";
+        break;
+}

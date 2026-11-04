@@ -1,0 +1,6 @@
+# Tavaan-Demo — Storage
+
+storage/logs/*
+storage/cache/*
+storage/app/*
+!.gitkeep
