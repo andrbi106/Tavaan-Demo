@@ -1,2 +1,2 @@
 <?php
-return return ['error_expired' => 'Cookie expired.'];;
+return ['error_expired' => 'Cookie expired.'];

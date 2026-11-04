@@ -1,2 +1,2 @@
 <?php
-return return ['error_credentials' => 'Invalid credentials.'];;
+return ['error_credentials' => 'Invalid credentials.'];

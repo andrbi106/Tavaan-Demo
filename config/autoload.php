@@ -22,6 +22,10 @@ return [
 
         // اپلیکیشن
         'App\\'             => ['app/src/'],
+
+        // PSR-11 (stub محلی — فقط در صورت نبودِ نسخهٔ رسمی Composer)
+        // vendor/ در ابتدا قرار می‌گیرد تا اگر composer نصب باشد، اولویت با آن باشد.
+        'Psr\\Container\\'  => ['vendor/psr/container/src/', 'core/Psr11/Container/'],
     ],
     'classmap' => [],
     'files' => [

@@ -23,7 +23,11 @@ namespace Tavaan\Core\Container;
 use Tavaan\Core\Contracts\Container\ContainerInterface;
 use Tavaan\Core\Exceptions\Core\ContainerException;
 
-final class Container implements ContainerInterface
+/**
+ * کلاس Container توسط Application نیز extend می‌شود، بنابراین final نیست.
+ * (قبلاً به‌اشتباه final بود که باعث خطای "cannot extend final class" می‌شد.)
+ */
+class Container implements ContainerInterface
 {
     /** @var array<string, Binding> */
     private array $bindings = [];
@@ -39,6 +43,16 @@ final class Container implements ContainerInterface
 
     /** @var list<string> resolution stack (برای تشخیص چرخه) */
     private array $resolving = [];
+
+    /**
+     * سازندهٔ Container.
+     * خالی است زیرا propertyها با مقادیر پیش‌فرض مقداردهی شده‌اند، اما
+     * لازم است تا زیرکلاس‌ها (مانند Application) بتوانند parent::__construct() را فراخوانی کنند.
+     */
+    public function __construct()
+    {
+        // no-op — initialization via property defaults
+    }
 
     public function bind(string $abstract, \Closure|string|null $concrete = null, bool $shared = false): void
     {

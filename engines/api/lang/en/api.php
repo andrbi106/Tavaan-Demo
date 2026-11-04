@@ -1,2 +1,2 @@
 <?php
-return return ['error_invalid' => 'Invalid data.'];;
+return ['error_invalid' => 'Invalid data.'];

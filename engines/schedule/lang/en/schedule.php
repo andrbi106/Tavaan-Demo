@@ -1,2 +1,2 @@
 <?php
-return return ['error_schedule' => 'Schedule error.'];;
+return ['error_schedule' => 'Schedule error.'];

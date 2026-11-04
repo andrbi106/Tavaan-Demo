@@ -7,7 +7,7 @@ declare(strict_types=1);
  *
  * Autoloader صفر‌وابستگی با پشتیبانی از:
  *   - PSR-4 (prefix → path)
- *   - Wildcard (engines/*/src/)
+ *   - Wildcard (engines/<star>/src/)
  *   - Class map caching
  *   - Path traversal prevention (security)
  *   - Prefix locking (غیرقابل override)
@@ -20,7 +20,7 @@ final class Autoloader
     /** @var array<string, list<string>> prefix → paths */
     private array $prefixes = [];
 
-    /** @var array<string, list<string>> wildcard prefixes (engines/*/src/) */
+    /** @var array<string, list<string>> wildcard prefixes (engines/<star>/src/) */
     private array $wildcards = [];
 
     /** @var array<string, string> class => file (cached) */

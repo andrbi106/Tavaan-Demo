@@ -1,2 +1,2 @@
 <?php
-return return ['error_permission' => 'Permission denied.'];;
+return ['error_permission' => 'Permission denied.'];

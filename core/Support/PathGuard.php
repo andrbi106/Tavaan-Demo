@@ -29,7 +29,7 @@ final class PathGuard
      */
     public static function normalize(string $path): string
     {
-        $path = str_replace('\', '/', $path);
+        $path = str_replace('\\', '/', $path);
         $parts = [];
         foreach (explode('/', $path) as $part) {
             if ($part === '' || $part === '.') {

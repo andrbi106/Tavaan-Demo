@@ -1,2 +1,2 @@
 <?php
-return return ['error_report' => 'Report error.'];;
+return ['error_report' => 'Report error.'];
