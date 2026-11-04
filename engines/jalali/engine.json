@@ -1,0 +1,30 @@
+{
+  "id": "tavaan.engine.jalali",
+  "type": "engine",
+  "name": "Jalali",
+  "title_fa": "تقویم جلالی",
+  "version": "0.1.0",
+  "namespace": "Tavaan\\Engine\\I18n\\Jalali\\",
+  "autoload": {
+    "psr-4": {
+      "Tavaan\\Engine\\I18n\\Jalali\\": "src/"
+    }
+  },
+  "providers": [
+    "Tavaan\\Engine\\I18n\\Jalali\\JalaliServiceProvider"
+  ],
+  "requires": {
+    "php": ">=8.2",
+    "engines": [
+      "i18n"
+    ]
+  },
+  "config": {
+    "file": "config/jalali.php",
+    "key": "jalali"
+  },
+  "tables": [],
+  "commands": [],
+  "docs": "docs/03-engines/jalali.md",
+  "class": "Tavaan\\Engine\\I18n\\Jalali\\JalaliEngine"
+}

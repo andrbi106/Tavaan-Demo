@@ -1,0 +1,25 @@
+# Tavaan-Demo — gitignore
+
+# This is a demo/consolidation repo
+# All content is cloned from individual repos — do not edit here
+# Make changes in the respective repos
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# PHP
+vendor/
+composer.lock
+
+# Runtime
+storage/logs/*
+storage/cache/*
+!storage/logs/.gitkeep
+!storage/cache/.gitkeep

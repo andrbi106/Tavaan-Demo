@@ -1,0 +1,73 @@
+# Tavaan Engine — Http
+
+> **HTTP** — موتور Http در فریمورک تَوان
+
+این موتور از کلاس پایهٔ `Engine` (در [Tavaan-Engine-Core](https://github.com/andrbi106/Tavaan-Engine-Core)) ارث می‌برد.
+
+## مشخصات
+
+| فیلد | مقدار |
+|---|---|
+| شناسه | `tavaan.engine.http` |
+| نام | `Http` |
+| عنوان فارسی | HTTP |
+| نسخه | `0.1.0` |
+| namespace | `Tavaan\Engine\Http` |
+| کلاس موتور | `Tavaan\Engine\Http\HttpEngine` |
+| Facade | Http (`http`) |
+
+## کلاس موتور
+
+```php
+namespace Tavaan\Engine\Http;
+
+use Tavaan\EngineCore\Engine as BaseEngine;
+use Tavaan\EngineCore\Contracts\EngineManifestInterface;
+
+final class HttpEngine extends BaseEngine
+{
+    public function __construct(EngineManifestInterface $manifest)
+    {
+        parent::__construct($manifest);
+    }
+
+    public function register(ContainerInterface $container): void
+    {
+        parent::register($container);
+        // bindingهای اختصاصی موتور
+    }
+
+    public function boot(): void
+    {
+        parent::boot();
+    }
+}
+```
+
+**فایل:** `src/HttpEngine.php`
+
+## وابستگی‌ها
+
+**موتورهای مورد‌نیاز:** `pipeline`, `event`, `error`, `config`
+
+## Service Providerها
+
+- `Tavaan\Engine\Http\HttpServiceProvider`
+
+## سه درگاه ارتباط با سایر موتورها
+
+| درگاه | الگو | متدهای convenience |
+|---|---|---|
+| Container | pull-based DI | `make()`, `bound()` |
+| Events | pub/sub | `dispatch()`, `listen()` |
+| EngineBus | point-to-point RPC | `call()`, `offer()` |
+
+## نصب
+
+```bash
+git clone https://github.com/andrbi106/Tavaan-Engine-Http.git
+```
+
+## مجوز
+
+MIT — هم‌راستا با فریمورک مادر تَوان.

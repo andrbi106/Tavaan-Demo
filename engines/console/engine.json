@@ -1,0 +1,31 @@
+{
+  "id": "tavaan.engine.console",
+  "type": "engine",
+  "name": "Console",
+  "title_fa": "چارچوب CLI",
+  "version": "0.1.0",
+  "namespace": "Tavaan\\Engine\\Console\\",
+  "autoload": {
+    "psr-4": {
+      "Tavaan\\Engine\\Console\\": "src/"
+    }
+  },
+  "providers": [
+    "Tavaan\\Engine\\Console\\ConsoleServiceProvider"
+  ],
+  "requires": {
+    "php": ">=8.2",
+    "engines": [
+      "container",
+      "config"
+    ]
+  },
+  "config": {
+    "file": "config/console.php",
+    "key": "console"
+  },
+  "tables": [],
+  "commands": [],
+  "docs": "docs/03-engines/console.md",
+  "class": "Tavaan\\Engine\\Console\\ConsoleEngine"
+}

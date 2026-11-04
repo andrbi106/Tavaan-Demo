@@ -1,0 +1,21 @@
+{
+    "name": "andrbi106/tavaan-core",
+    "description": "تَوان | Tavaan — هستهٔ فریمورک. کانتینر DI، Event Dispatcher، Autoloader، ServiceProvider، Facade، قراردادها و زیرساخت بنیادی که موتورها و Tavaan-Engine-Core به آن وابسته‌اند.",
+    "type": "library",
+    "license": "MIT",
+    "require": {
+        "php": ">=8.2.0",
+        "psr/container": "^2.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Tavaan\\Core\\": "",
+            "Tavaan\\Support\\": "Support/"
+        },
+        "files": [
+            "Support/helpers.php"
+        ]
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}

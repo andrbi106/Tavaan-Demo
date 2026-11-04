@@ -1,0 +1,34 @@
+{
+  "id": "tavaan.engine.media",
+  "type": "engine",
+  "name": "Media",
+  "title_fa": "آپلود و پردازش رسانه",
+  "version": "0.1.0",
+  "namespace": "Tavaan\\Engine\\Media\\",
+  "autoload": {
+    "psr-4": {
+      "Tavaan\\Engine\\Media\\": "src/"
+    }
+  },
+  "providers": [
+    "Tavaan\\Engine\\Media\\MediaServiceProvider"
+  ],
+  "requires": {
+    "php": ">=8.2",
+    "engines": [
+      "config"
+    ]
+  },
+  "config": {
+    "file": "config/media.php",
+    "key": "media"
+  },
+  "tables": [],
+  "commands": [],
+  "facade": {
+    "name": "Media",
+    "accessor": "media"
+  },
+  "docs": "docs/03-engines/media.md",
+  "class": "Tavaan\\Engine\\Media\\MediaEngine"
+}
