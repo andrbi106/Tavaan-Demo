@@ -3,7 +3,7 @@
   "type": "engine",
   "name": "RBAC",
   "title_fa": "نقش و کنترل دسترسی",
-  "version": "0.1.0",
+  "version": "0.0.1",
   "namespace": "Tavaan\\Engine\\Rbac\\",
   "autoload": {
     "psr-4": {

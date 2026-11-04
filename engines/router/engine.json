@@ -3,7 +3,7 @@
   "type": "engine",
   "name": "Router",
   "title_fa": "مسیریاب Compiled Trie",
-  "version": "0.1.0",
+  "version": "0.0.1",
   "namespace": "Tavaan\\Engine\\Http\\Routing\\",
   "autoload": {
     "psr-4": {

@@ -3,7 +3,7 @@
   "type": "engine",
   "name": "Migration",
   "title_fa": "مهاجرت دیتابیس",
-  "version": "0.1.0",
+  "version": "0.0.1",
   "namespace": "Tavaan\\Engine\\Database\\Migration\\",
   "autoload": {
     "psr-4": {

@@ -3,7 +3,7 @@
   "type": "engine",
   "name": "Pipeline",
   "title_fa": "خط لوله",
-  "version": "0.1.0",
+  "version": "0.0.1",
   "namespace": "Tavaan\\Engine\\Pipeline\\",
   "autoload": {
     "psr-4": {

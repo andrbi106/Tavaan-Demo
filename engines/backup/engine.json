@@ -3,7 +3,7 @@
   "type": "engine",
   "name": "Backup",
   "title_fa": "پشتیبان‌گیری",
-  "version": "0.1.0",
+  "version": "0.0.1",
   "namespace": "Tavaan\\Engine\\Backup\\",
   "autoload": {
     "psr-4": {

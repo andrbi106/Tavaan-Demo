@@ -3,7 +3,7 @@
   "type": "engine",
   "name": "Config",
   "title_fa": "پیکربندی و محیط",
-  "version": "0.1.0",
+  "version": "0.0.1",
   "namespace": "Tavaan\\Engine\\Config\\",
   "autoload": {
     "psr-4": {

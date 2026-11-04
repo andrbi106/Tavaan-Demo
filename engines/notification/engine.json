@@ -3,7 +3,7 @@
   "type": "engine",
   "name": "Notification",
   "title_fa": "آگاه‌سازی",
-  "version": "0.1.0",
+  "version": "0.0.1",
   "namespace": "Tavaan\\Engine\\Notification\\",
   "autoload": {
     "psr-4": {

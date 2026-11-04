@@ -3,7 +3,7 @@
   "type": "engine",
   "name": "Media",
   "title_fa": "آپلود و پردازش رسانه",
-  "version": "0.1.0",
+  "version": "0.0.1",
   "namespace": "Tavaan\\Engine\\Media\\",
   "autoload": {
     "psr-4": {

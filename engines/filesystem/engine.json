@@ -3,7 +3,7 @@
   "type": "engine",
   "name": "Filesystem",
   "title_fa": "سامانه فایل",
-  "version": "0.1.0",
+  "version": "0.0.1",
   "namespace": "Tavaan\\Engine\\Filesystem\\",
   "autoload": {
     "psr-4": {

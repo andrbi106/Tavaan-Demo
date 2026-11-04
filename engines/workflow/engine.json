@@ -3,7 +3,7 @@
   "type": "engine",
   "name": "Workflow",
   "title_fa": "گردش‌کار",
-  "version": "0.1.0",
+  "version": "0.0.1",
   "namespace": "Tavaan\\Engine\\Workflow\\",
   "autoload": {
     "psr-4": {

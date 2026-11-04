@@ -3,7 +3,7 @@
   "type": "engine",
   "name": "Realtime",
   "title_fa": "بلادرنگ",
-  "version": "0.1.0",
+  "version": "0.0.1",
   "namespace": "Tavaan\\Engine\\Realtime\\",
   "autoload": {
     "psr-4": {

@@ -3,7 +3,7 @@
   "type": "engine",
   "name": "Module",
   "title_fa": "کشف و مدیریت ماژول",
-  "version": "0.1.0",
+  "version": "0.0.1",
   "namespace": "Tavaan\\Engine\\Module\\",
   "autoload": {
     "psr-4": {

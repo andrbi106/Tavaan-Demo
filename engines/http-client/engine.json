@@ -3,7 +3,7 @@
   "type": "engine",
   "name": "HttpClient",
   "title_fa": "کلاینت HTTP",
-  "version": "0.1.0",
+  "version": "0.0.1",
   "namespace": "Tavaan\\Engine\\HttpClient\\",
   "autoload": {
     "psr-4": {

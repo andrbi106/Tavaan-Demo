@@ -3,7 +3,7 @@
   "type": "engine",
   "name": "I18n",
   "title_fa": "بین‌المللی‌سازی",
-  "version": "0.1.0",
+  "version": "0.0.1",
   "namespace": "Tavaan\\Engine\\I18n\\",
   "autoload": {
     "psr-4": {

@@ -17,7 +17,7 @@ final class Application extends Container implements ApplicationInterface
 
     public function __construct(
         private readonly string $basePath,
-        private readonly string $version = '0.22.0',
+        private readonly string $version = '0.0.1',
         private readonly ?DispatcherInterface $events = null,
     ) {
         parent::__construct();

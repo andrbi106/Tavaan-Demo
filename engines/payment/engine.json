@@ -3,7 +3,7 @@
   "type": "engine",
   "name": "Payment",
   "title_fa": "پرداخت",
-  "version": "0.1.0",
+  "version": "0.0.1",
   "namespace": "Tavaan\\Engine\\Payment\\",
   "autoload": {
     "psr-4": {

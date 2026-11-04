@@ -3,7 +3,7 @@
   "type": "engine",
   "name": "Plugin",
   "title_fa": "افزونهٔ ثالث (sandbox + امضا)",
-  "version": "0.1.0",
+  "version": "0.0.1",
   "namespace": "Tavaan\\Engine\\Plugin\\",
   "autoload": {
     "psr-4": {

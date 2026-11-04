@@ -3,7 +3,7 @@
   "type": "engine",
   "name": "ORM",
   "title_fa": "نگاشت شیء-رابطه",
-  "version": "0.1.0",
+  "version": "0.0.1",
   "namespace": "Tavaan\\Engine\\Database\\ORM\\",
   "autoload": {
     "psr-4": {

@@ -3,7 +3,7 @@
   "type": "engine",
   "name": "Search",
   "title_fa": "جست‌وجوی Full-Text",
-  "version": "0.1.0",
+  "version": "0.0.1",
   "namespace": "Tavaan\\Engine\\Search\\",
   "autoload": {
     "psr-4": {

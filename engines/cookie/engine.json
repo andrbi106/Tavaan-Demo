@@ -3,7 +3,7 @@
   "type": "engine",
   "name": "Cookie",
   "title_fa": "کوکی رمزنگاری‌شده",
-  "version": "0.1.0",
+  "version": "0.0.1",
   "namespace": "Tavaan\\Engine\\Http\\Cookie\\",
   "autoload": {
     "psr-4": {

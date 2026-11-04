@@ -3,7 +3,7 @@
   "type": "engine",
   "name": "API",
   "title_fa": "لایهٔ API",
-  "version": "0.1.0",
+  "version": "0.0.1",
   "namespace": "Tavaan\\Engine\\Api\\",
   "autoload": {
     "psr-4": {

@@ -3,7 +3,7 @@
   "type": "engine",
   "name": "Event",
   "title_fa": "رویداد و Outbox",
-  "version": "0.1.0",
+  "version": "0.0.1",
   "namespace": "Tavaan\\Engine\\Event\\",
   "autoload": {
     "psr-4": {

@@ -3,7 +3,7 @@
   "type": "engine",
   "name": "Auth",
   "title_fa": "احراز هویت",
-  "version": "0.1.0",
+  "version": "0.0.1",
   "namespace": "Tavaan\\Engine\\Auth\\",
   "autoload": {
     "psr-4": {

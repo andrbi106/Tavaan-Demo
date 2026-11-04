@@ -3,7 +3,7 @@
   "type": "engine",
   "name": "Console",
   "title_fa": "چارچوب CLI",
-  "version": "0.1.0",
+  "version": "0.0.1",
   "namespace": "Tavaan\\Engine\\Console\\",
   "autoload": {
     "psr-4": {

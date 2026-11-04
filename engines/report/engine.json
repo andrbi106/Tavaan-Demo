@@ -3,7 +3,7 @@
   "type": "engine",
   "name": "Report",
   "title_fa": "گزارش‌ساز",
-  "version": "0.1.0",
+  "version": "0.0.1",
   "namespace": "Tavaan\\Engine\\Report\\",
   "autoload": {
     "psr-4": {

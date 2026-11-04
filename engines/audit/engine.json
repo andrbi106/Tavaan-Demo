@@ -3,7 +3,7 @@
   "type": "engine",
   "name": "Audit",
   "title_fa": "ممیزی",
-  "version": "0.1.0",
+  "version": "0.0.1",
   "namespace": "Tavaan\\Engine\\Audit\\",
   "autoload": {
     "psr-4": {

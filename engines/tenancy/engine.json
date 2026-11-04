@@ -3,7 +3,7 @@
   "type": "engine",
   "name": "Tenancy",
   "title_fa": "چنداجاره‌ای",
-  "version": "0.1.0",
+  "version": "0.0.1",
   "namespace": "Tavaan\\Engine\\Tenancy\\",
   "autoload": {
     "psr-4": {

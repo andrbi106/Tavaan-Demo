@@ -3,7 +3,7 @@
   "type": "engine",
   "name": "Scaffold",
   "title_fa": "تولید کد (make:*)",
-  "version": "0.1.0",
+  "version": "0.0.1",
   "namespace": "Tavaan\\Engine\\Scaffold\\",
   "autoload": {
     "psr-4": {

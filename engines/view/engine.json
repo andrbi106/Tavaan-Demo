@@ -3,7 +3,7 @@
   "type": "engine",
   "name": "View",
   "title_fa": "قالب‌ساز",
-  "version": "0.1.0",
+  "version": "0.0.1",
   "namespace": "Tavaan\\Engine\\View\\",
   "autoload": {
     "psr-4": {

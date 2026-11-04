@@ -3,7 +3,7 @@
   "type": "engine",
   "name": "Security",
   "title_fa": "امنیت عرضی (CSRF/RateLimit/Sanitizer/SSRF)",
-  "version": "0.1.0",
+  "version": "0.0.1",
   "namespace": "Tavaan\\Engine\\Security\\",
   "autoload": {
     "psr-4": {

@@ -3,7 +3,7 @@
   "type": "engine",
   "name": "Container",
   "title_fa": "ظرف سرویس (DI)",
-  "version": "0.1.0",
+  "version": "0.0.1",
   "namespace": "Tavaan\\Engine\\Container\\",
   "autoload": {
     "psr-4": {

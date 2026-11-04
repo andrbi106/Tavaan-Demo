@@ -3,7 +3,7 @@
   "type": "engine",
   "name": "Test",
   "title_fa": "چارچوب تست",
-  "version": "0.1.0",
+  "version": "0.0.1",
   "namespace": "Tavaan\\Testing\\",
   "autoload": {
     "psr-4": {

@@ -3,7 +3,7 @@
   "type": "engine",
   "name": "Cache",
   "title_fa": "حافظه نهان",
-  "version": "0.1.0",
+  "version": "0.0.1",
   "namespace": "Tavaan\\Engine\\Cache\\",
   "autoload": {
     "psr-4": {

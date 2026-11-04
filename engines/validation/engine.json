@@ -3,7 +3,7 @@
   "type": "engine",
   "name": "Validation",
   "title_fa": "اعتبارسنجی",
-  "version": "0.1.0",
+  "version": "0.0.1",
   "namespace": "Tavaan\\Engine\\Validation\\",
   "autoload": {
     "psr-4": {

@@ -3,7 +3,7 @@
   "type": "engine",
   "name": "Schema",
   "title_fa": "ساختار دیتابیس",
-  "version": "0.1.0",
+  "version": "0.0.1",
   "namespace": "Tavaan\\Engine\\Database\\Schema\\",
   "autoload": {
     "psr-4": {

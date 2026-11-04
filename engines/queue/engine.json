@@ -3,7 +3,7 @@
   "type": "engine",
   "name": "Queue",
   "title_fa": "صف و Worker",
-  "version": "0.1.0",
+  "version": "0.0.1",
   "namespace": "Tavaan\\Engine\\Queue\\",
   "autoload": {
     "psr-4": {

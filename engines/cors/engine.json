@@ -3,7 +3,7 @@
   "type": "engine",
   "name": "CORS",
   "title_fa": "مدیریت CORS",
-  "version": "0.1.0",
+  "version": "0.0.1",
   "namespace": "Tavaan\\Engine\\Http\\Cors\\",
   "autoload": {
     "psr-4": {
