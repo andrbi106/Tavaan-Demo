@@ -1,34 +1,34 @@
 {
-  "id": "tavaan.engine.upgrade",
-  "type": "engine",
-  "name": "Upgrade",
-  "title_fa": "ارتقای نسخه",
-  "version": "0.0.1",
-  "namespace": "Tavaan\\Engine\\Upgrade\\",
-  "autoload": {
-    "psr-4": {
-      "Tavaan\\Engine\\Upgrade\\": "src/"
-    }
-  },
-  "providers": [
-    "Tavaan\\Engine\\Upgrade\\UpgradeServiceProvider"
-  ],
-  "requires": {
-    "php": ">=8.2",
-    "engines": [
-      "console",
-      "database",
-      "filesystem"
-    ]
-  },
-  "config": {
-    "file": "config/upgrade.php",
-    "key": "upgrade"
-  },
-  "tables": [],
-  "commands": [
-    "upgrade"
-  ],
-  "docs": "docs/03-engines/upgrade.md",
-  "class": "Tavaan\\Engine\\Upgrade\\UpgradeEngine"
+    "id": "tavaan.engine.upgrade",
+    "type": "engine",
+    "name": "Upgrade",
+    "title_fa": "ارتقای نسخه",
+    "version": "0.0.1",
+    "namespace": "Tavaan\\Engine\\Upgrade\\",
+    "autoload": {
+        "namespace-map": {
+            "Tavaan\\Engine\\Upgrade\\": "src/"
+        }
+    },
+    "providers": [
+        "Tavaan\\Engine\\Upgrade\\UpgradeServiceProvider"
+    ],
+    "requires": {
+        "php": ">=8.2",
+        "engines": [
+            "console",
+            "database",
+            "filesystem"
+        ]
+    },
+    "config": {
+        "file": "config/upgrade.php",
+        "key": "upgrade"
+    },
+    "tables": [],
+    "commands": [
+        "upgrade"
+    ],
+    "docs": "docs/03-engines/upgrade.md",
+    "class": "Tavaan\\Engine\\Upgrade\\UpgradeEngine"
 }

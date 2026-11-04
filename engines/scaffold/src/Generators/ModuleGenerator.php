@@ -52,7 +52,6 @@ final class ModuleGenerator extends Generator
 
         $files = [
             $this->target($root . '/module.json') => $this->render('module-json.stub', $vars),
-            $this->target($root . '/composer.json') => $this->render('module-composer.stub', $vars),
             $this->target($root . '/README.md') => $this->render('module-readme.stub', $vars),
             $this->target($root . '/src/Providers/' . $pascal . 'ServiceProvider.php') => $this->render('module-provider.stub', $vars),
             $this->target($root . '/config/' . $slug . '.php') => $this->render('module-config.stub', $vars),

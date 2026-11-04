@@ -1,31 +1,31 @@
 {
-  "id": "tavaan.engine.orm",
-  "type": "engine",
-  "name": "ORM",
-  "title_fa": "نگاشت شیء-رابطه",
-  "version": "0.0.1",
-  "namespace": "Tavaan\\Engine\\Database\\ORM\\",
-  "autoload": {
-    "psr-4": {
-      "Tavaan\\Engine\\Database\\ORM\\": "src/"
-    }
-  },
-  "providers": [
-    "Tavaan\\Engine\\Database\\ORM\\ORMServiceProvider"
-  ],
-  "requires": {
-    "php": ">=8.2",
-    "engines": [
-      "database",
-      "event"
-    ]
-  },
-  "config": {
-    "file": "config/orm.php",
-    "key": "orm"
-  },
-  "tables": [],
-  "commands": [],
-  "docs": "docs/03-engines/orm.md",
-  "class": "Tavaan\\Engine\\Database\\ORM\\ORMEngine"
+    "id": "tavaan.engine.orm",
+    "type": "engine",
+    "name": "ORM",
+    "title_fa": "نگاشت شیء-رابطه",
+    "version": "0.0.1",
+    "namespace": "Tavaan\\Engine\\Database\\ORM\\",
+    "autoload": {
+        "namespace-map": {
+            "Tavaan\\Engine\\Database\\ORM\\": "src/"
+        }
+    },
+    "providers": [
+        "Tavaan\\Engine\\Database\\ORM\\ORMServiceProvider"
+    ],
+    "requires": {
+        "php": ">=8.2",
+        "engines": [
+            "database",
+            "event"
+        ]
+    },
+    "config": {
+        "file": "config/orm.php",
+        "key": "orm"
+    },
+    "tables": [],
+    "commands": [],
+    "docs": "docs/03-engines/orm.md",
+    "class": "Tavaan\\Engine\\Database\\ORM\\ORMEngine"
 }

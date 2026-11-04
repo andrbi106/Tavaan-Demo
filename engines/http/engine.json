@@ -1,37 +1,37 @@
 {
-  "id": "tavaan.engine.http",
-  "type": "engine",
-  "name": "Http",
-  "title_fa": "HTTP",
-  "version": "0.0.1",
-  "namespace": "Tavaan\\Engine\\Http\\",
-  "autoload": {
-    "psr-4": {
-      "Tavaan\\Engine\\Http\\": "src/"
-    }
-  },
-  "providers": [
-    "Tavaan\\Engine\\Http\\HttpServiceProvider"
-  ],
-  "requires": {
-    "php": ">=8.2",
-    "engines": [
-      "pipeline",
-      "event",
-      "error",
-      "config"
-    ]
-  },
-  "config": {
-    "file": "config/http.php",
-    "key": "http"
-  },
-  "tables": [],
-  "commands": [],
-  "facade": {
+    "id": "tavaan.engine.http",
+    "type": "engine",
     "name": "Http",
-    "accessor": "http"
-  },
-  "docs": "docs/03-engines/http.md",
-  "class": "Tavaan\\Engine\\Http\\HttpEngine"
+    "title_fa": "HTTP",
+    "version": "0.0.1",
+    "namespace": "Tavaan\\Engine\\Http\\",
+    "autoload": {
+        "namespace-map": {
+            "Tavaan\\Engine\\Http\\": "src/"
+        }
+    },
+    "providers": [
+        "Tavaan\\Engine\\Http\\HttpServiceProvider"
+    ],
+    "requires": {
+        "php": ">=8.2",
+        "engines": [
+            "pipeline",
+            "event",
+            "error",
+            "config"
+        ]
+    },
+    "config": {
+        "file": "config/http.php",
+        "key": "http"
+    },
+    "tables": [],
+    "commands": [],
+    "facade": {
+        "name": "Http",
+        "accessor": "http"
+    },
+    "docs": "docs/03-engines/http.md",
+    "class": "Tavaan\\Engine\\Http\\HttpEngine"
 }

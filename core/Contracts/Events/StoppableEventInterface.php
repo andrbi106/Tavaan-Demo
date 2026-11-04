@@ -4,7 +4,7 @@ namespace Tavaan\Core\Contracts\Events;
 
 /**
  * رویدادی که قابل توقف است ( propagation را متوقف می‌کند).
- * سازگار با PSR-14 StoppableEventInterface.
+ * الگوی استاندارد event propagation در فریمورک تَوان.
  */
 interface StoppableEventInterface
 {

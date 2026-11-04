@@ -1,39 +1,39 @@
 {
-  "id": "tavaan.engine.database",
-  "type": "engine",
-  "name": "Database",
-  "title_fa": "دیتابیس",
-  "version": "0.0.1",
-  "namespace": "Tavaan\\Engine\\Database\\",
-  "autoload": {
-    "psr-4": {
-      "Tavaan\\Engine\\Database\\": "src/"
-    }
-  },
-  "providers": [
-    "Tavaan\\Engine\\Database\\DatabaseServiceProvider"
-  ],
-  "requires": {
-    "php": ">=8.2",
-    "engines": [
-      "config",
-      "event",
-      "log"
+    "id": "tavaan.engine.database",
+    "type": "engine",
+    "name": "Database",
+    "title_fa": "دیتابیس",
+    "version": "0.0.1",
+    "namespace": "Tavaan\\Engine\\Database\\",
+    "autoload": {
+        "namespace-map": {
+            "Tavaan\\Engine\\Database\\": "src/"
+        }
+    },
+    "providers": [
+        "Tavaan\\Engine\\Database\\DatabaseServiceProvider"
     ],
-    "extensions": [
-      "pdo"
-    ]
-  },
-  "config": {
-    "file": "config/database.php",
-    "key": "database"
-  },
-  "tables": [],
-  "commands": [],
-  "facade": {
-    "name": "DB",
-    "accessor": "db"
-  },
-  "docs": "docs/03-engines/database.md",
-  "class": "Tavaan\\Engine\\Database\\DatabaseEngine"
+    "requires": {
+        "php": ">=8.2",
+        "engines": [
+            "config",
+            "event",
+            "log"
+        ],
+        "extensions": [
+            "pdo"
+        ]
+    },
+    "config": {
+        "file": "config/database.php",
+        "key": "database"
+    },
+    "tables": [],
+    "commands": [],
+    "facade": {
+        "name": "DB",
+        "accessor": "db"
+    },
+    "docs": "docs/03-engines/database.md",
+    "class": "Tavaan\\Engine\\Database\\DatabaseEngine"
 }

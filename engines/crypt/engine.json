@@ -1,37 +1,37 @@
 {
-  "id": "tavaan.engine.crypt",
-  "type": "engine",
-  "name": "Crypt",
-  "title_fa": "رمزنگاری",
-  "version": "0.0.1",
-  "namespace": "Tavaan\\Engine\\Crypt\\",
-  "autoload": {
-    "psr-4": {
-      "Tavaan\\Engine\\Crypt\\": "src/"
-    }
-  },
-  "providers": [
-    "Tavaan\\Engine\\Crypt\\CryptServiceProvider"
-  ],
-  "requires": {
-    "php": ">=8.2",
-    "engines": [
-      "config"
-    ],
-    "extensions": [
-      "openssl"
-    ]
-  },
-  "config": {
-    "file": "config/crypt.php",
-    "key": "crypt"
-  },
-  "tables": [],
-  "commands": [],
-  "facade": {
+    "id": "tavaan.engine.crypt",
+    "type": "engine",
     "name": "Crypt",
-    "accessor": "encrypter"
-  },
-  "docs": "docs/03-engines/crypt.md",
-  "class": "Tavaan\\Engine\\Crypt\\CryptEngine"
+    "title_fa": "رمزنگاری",
+    "version": "0.0.1",
+    "namespace": "Tavaan\\Engine\\Crypt\\",
+    "autoload": {
+        "namespace-map": {
+            "Tavaan\\Engine\\Crypt\\": "src/"
+        }
+    },
+    "providers": [
+        "Tavaan\\Engine\\Crypt\\CryptServiceProvider"
+    ],
+    "requires": {
+        "php": ">=8.2",
+        "engines": [
+            "config"
+        ],
+        "extensions": [
+            "openssl"
+        ]
+    },
+    "config": {
+        "file": "config/crypt.php",
+        "key": "crypt"
+    },
+    "tables": [],
+    "commands": [],
+    "facade": {
+        "name": "Crypt",
+        "accessor": "encrypter"
+    },
+    "docs": "docs/03-engines/crypt.md",
+    "class": "Tavaan\\Engine\\Crypt\\CryptEngine"
 }

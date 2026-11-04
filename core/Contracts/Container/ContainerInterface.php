@@ -11,7 +11,7 @@ declare(strict_types=1);
 
 namespace Tavaan\Core\Contracts\Container;
 
-interface ContainerInterface extends PsrContainerInterface
+interface ContainerInterface extends ReadableContainerInterface
 {
     /**
      * ثبت یک binding.

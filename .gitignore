@@ -14,9 +14,9 @@ Thumbs.db
 *.swp
 *.swo
 
-# PHP
+# PHP runtime (تَوان ZeroDependency — هیچ manifest پکیج‌منیجر استفاده نمی‌شود،
+# اما vendor/ ممکن است افزونه‌های خارجی داشته باشد که ایزوله بارگذاری می‌شوند)
 vendor/
-composer.lock
 
 # Runtime
 storage/logs/*

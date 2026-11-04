@@ -13,7 +13,7 @@ use Tavaan\Core\Provider\ServiceProvider;
  * تَوان | Tavaan — Plugin
  * PluginSandbox — بارگذاری ایزولهٔ افزونه (DOC-079 §5).
  *
- * ۱) PSR-4 اختصاصی افزونه روی Autoloader هسته (بدون prepend → هسته اولویت دارد؛
+ * ۱) نگاشت فضای‌نام اختصاصی افزونه روی Autoloader هسته (بدون prepend → هسته اولویت دارد؛
  *    prefixهای قفل‌شدهٔ هسته هم هرگز override نمی‌شوند — Autoloader locked_prefixes)
  * ۲) vendor افزونه (معافیت صفر‌وابستگی) با ثبت append — کلاس‌های هسته/موتورها
  *    بر vendor افزونه اولویت دارند (ضدتداخل)
@@ -28,7 +28,7 @@ final class PluginSandbox
     /** @var array<string, true> پراوایدرهای boot‌شده (ضد double-boot) */
     private array $booted = [];
 
-    /** @var array<string, true> loaderهای PSR-4 ثبت‌شده برای مسیرهای خارج از base */
+    /** @var array<string, true> loaderهای فضای‌نام ثبت‌شده برای مسیرهای خارج از base */
     private array $fallbackLoaders = [];
 
     /**
@@ -51,18 +51,18 @@ final class PluginSandbox
             // روی Autoloader هسته (append → هسته اولویت دارد؛ prefixهای
             // قفل‌شده هرگز override نمی‌شوند — Autoloader locked_prefixes)
             $autoloader = AutoloaderRegistry::get();
-            foreach ($plugin->psr4 as $prefix => $relativeDir) {
+            foreach ($plugin->namespaceMap as $prefix => $relativeDir) {
                 $autoloader->addNamespace($prefix, $plugin->path . '/' . $relativeDir, prepend: false);
             }
         } else {
             // مسیر خارج از base (plugins.path سفارشی/تست‌ها) — Autoloader هسته
-            // sandbox دارد؛ loader سبک PSR-4 افزونه با ثبت append (هسته اولویت دارد)
-            foreach ($plugin->psr4 as $prefix => $relativeDir) {
+            // sandbox دارد؛ loader سبک تَوان افزونه با ثبت append (هسته اولویت دارد)
+            foreach ($plugin->namespaceMap as $prefix => $relativeDir) {
                 $this->registerFallbackLoader($prefix, $plugin->path . '/' . $relativeDir);
             }
         }
 
-        // ۲) vendor ایزوله (معافیت DOC-079 §1) — composer پیش‌فرض append ثبت می‌کند
+        // ۲) vendor ایزوله (معافیت DOC-079 §1) — autoload پیش‌فرض append ثبت می‌کند
         if ($plugin->hasVendor() && (bool) ($this->config['allow_vendor'] ?? true)) {
             $this->registerIsolatedVendor($plugin);
         }
@@ -142,7 +142,7 @@ final class PluginSandbox
     }
 
     /**
-     * loader سبک PSR-4 برای افزونه‌های خارج از basePath (ثبت append —
+     * loader سبک تَوان برای افزونه‌های خارج از basePath (ثبت append —
      * کلاس‌های هسته/موتورها همیشه اولویت دارند).
      */
     private function registerFallbackLoader(string $prefix, string $dir): void

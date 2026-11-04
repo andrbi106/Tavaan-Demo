@@ -42,7 +42,7 @@ final class ModuleTest extends TestCase
             'name' => 'Shop',
             'version' => '1.0.0',
             'providers' => ['ServiceProvider'],
-            'autoload' => ['psr-4' => ['Shop\\' => 'src/']],
+            'autoload' => ['namespace-map' => ['Shop\\' => 'src/']],
         ], '/path/to/shop');
         $this->assertSame('tavaan.shop', $m->id);
         $this->assertSame('/path/to/shop', $m->path);
@@ -57,7 +57,7 @@ final class ModuleTest extends TestCase
             'name' => 'Shop',
             'version' => '1.0.0',
             'providers' => ['ShopServiceProvider'],
-            'autoload' => ['psr-4' => ['Shop\\' => 'src/']],
+            'autoload' => ['namespace-map' => ['Shop\\' => 'src/']],
         ];
         \file_put_contents($tmp . '/module.json', \json_encode($manifest));
         $parser = new ManifestParser();

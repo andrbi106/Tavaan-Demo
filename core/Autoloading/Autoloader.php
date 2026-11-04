@@ -6,11 +6,13 @@ declare(strict_types=1);
  * تَوان | Tavaan — Autoloader
  *
  * Autoloader صفر‌وابستگی با پشتیبانی از:
- *   - PSR-4 (prefix → path)
+ *   - نگاشت prefix → path (سبکِ تَوان)
  *   - Wildcard (engines/<star>/src/)
  *   - Class map caching
  *   - Path traversal prevention (security)
  *   - Prefix locking (غیرقابل override)
+ *
+ * تَوان قانون ZeroDependency را رعایت می‌کند — کاملاً خودکفا، بدون وابستگی بیرونی.
  */
 
 namespace Tavaan\Core\Autoloading;

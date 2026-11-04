@@ -103,7 +103,7 @@ class JsonResource
     }
 
     /**
-     * response — emit a JSON PSR-style response.
+     * response — emit a JSON response (سبکِ تَوان).
      */
     public function response(int $status = 200, array $headers = []): array
     {

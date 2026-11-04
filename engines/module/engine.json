@@ -1,31 +1,31 @@
 {
-  "id": "tavaan.engine.module",
-  "type": "engine",
-  "name": "Module",
-  "title_fa": "کشف و مدیریت ماژول",
-  "version": "0.0.1",
-  "namespace": "Tavaan\\Engine\\Module\\",
-  "autoload": {
-    "psr-4": {
-      "Tavaan\\Engine\\Module\\": "src/"
-    }
-  },
-  "providers": [
-    "Tavaan\\Engine\\Module\\ModuleServiceProvider"
-  ],
-  "requires": {
-    "php": ">=8.2",
-    "engines": [
-      "container",
-      "config"
-    ]
-  },
-  "config": {
-    "file": "config/module.php",
-    "key": "module"
-  },
-  "tables": [],
-  "commands": [],
-  "docs": "docs/03-engines/module.md",
-  "class": "Tavaan\\Engine\\Module\\ModuleEngine"
+    "id": "tavaan.engine.module",
+    "type": "engine",
+    "name": "Module",
+    "title_fa": "کشف و مدیریت ماژول",
+    "version": "0.0.1",
+    "namespace": "Tavaan\\Engine\\Module\\",
+    "autoload": {
+        "namespace-map": {
+            "Tavaan\\Engine\\Module\\": "src/"
+        }
+    },
+    "providers": [
+        "Tavaan\\Engine\\Module\\ModuleServiceProvider"
+    ],
+    "requires": {
+        "php": ">=8.2",
+        "engines": [
+            "container",
+            "config"
+        ]
+    },
+    "config": {
+        "file": "config/module.php",
+        "key": "module"
+    },
+    "tables": [],
+    "commands": [],
+    "docs": "docs/03-engines/module.md",
+    "class": "Tavaan\\Engine\\Module\\ModuleEngine"
 }

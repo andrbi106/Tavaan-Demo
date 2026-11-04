@@ -1,34 +1,34 @@
 {
-  "id": "tavaan.engine.tenancy",
-  "type": "engine",
-  "name": "Tenancy",
-  "title_fa": "چنداجاره‌ای",
-  "version": "0.0.1",
-  "namespace": "Tavaan\\Engine\\Tenancy\\",
-  "autoload": {
-    "psr-4": {
-      "Tavaan\\Engine\\Tenancy\\": "src/"
-    }
-  },
-  "providers": [
-    "Tavaan\\Engine\\Tenancy\\TenantServiceProvider"
-  ],
-  "requires": {
-    "php": ">=8.2",
-    "engines": [
-      "config"
-    ]
-  },
-  "config": {
-    "file": "config/tenancy.php",
-    "key": "tenancy"
-  },
-  "tables": [],
-  "commands": [],
-  "facade": {
-    "name": "Tenant",
-    "accessor": "tenant"
-  },
-  "docs": "docs/03-engines/tenancy.md",
-  "class": "Tavaan\\Engine\\Tenancy\\TenancyEngine"
+    "id": "tavaan.engine.tenancy",
+    "type": "engine",
+    "name": "Tenancy",
+    "title_fa": "چنداجاره‌ای",
+    "version": "0.0.1",
+    "namespace": "Tavaan\\Engine\\Tenancy\\",
+    "autoload": {
+        "namespace-map": {
+            "Tavaan\\Engine\\Tenancy\\": "src/"
+        }
+    },
+    "providers": [
+        "Tavaan\\Engine\\Tenancy\\TenantServiceProvider"
+    ],
+    "requires": {
+        "php": ">=8.2",
+        "engines": [
+            "config"
+        ]
+    },
+    "config": {
+        "file": "config/tenancy.php",
+        "key": "tenancy"
+    },
+    "tables": [],
+    "commands": [],
+    "facade": {
+        "name": "Tenant",
+        "accessor": "tenant"
+    },
+    "docs": "docs/03-engines/tenancy.md",
+    "class": "Tavaan\\Engine\\Tenancy\\TenancyEngine"
 }

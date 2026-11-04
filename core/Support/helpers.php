@@ -5,7 +5,8 @@ declare(strict_types=1);
 /**
  * تَوان | Tavaan — Helper functions عمومی
  *
- * این فایل توسط autoload files در composer.json بارگذاری می‌شود.
+ * این فایل توسط autoloader تَوان بارگذاری می‌شود (کلید `files` در config/autoload.php).
+ * تَوان قانون ZeroDependency را رعایت می‌کند — کاملاً خودکفا، بدون وابستگی بیرونی.
  */
 
 use Tavaan\Support\Arr;

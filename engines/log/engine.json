@@ -1,34 +1,34 @@
 {
-  "id": "tavaan.engine.log",
-  "type": "engine",
-  "name": "Log",
-  "title_fa": "گزارش ساختاریافته",
-  "version": "0.0.1",
-  "namespace": "Tavaan\\Engine\\Log\\",
-  "autoload": {
-    "psr-4": {
-      "Tavaan\\Engine\\Log\\": "src/"
-    }
-  },
-  "providers": [
-    "Tavaan\\Engine\\Log\\LogServiceProvider"
-  ],
-  "requires": {
-    "php": ">=8.2",
-    "engines": [
-      "config"
-    ]
-  },
-  "config": {
-    "file": "config/log.php",
-    "key": "log"
-  },
-  "tables": [],
-  "commands": [],
-  "facade": {
+    "id": "tavaan.engine.log",
+    "type": "engine",
     "name": "Log",
-    "accessor": "log"
-  },
-  "docs": "docs/03-engines/log.md",
-  "class": "Tavaan\\Engine\\Log\\LogEngine"
+    "title_fa": "گزارش ساختاریافته",
+    "version": "0.0.1",
+    "namespace": "Tavaan\\Engine\\Log\\",
+    "autoload": {
+        "namespace-map": {
+            "Tavaan\\Engine\\Log\\": "src/"
+        }
+    },
+    "providers": [
+        "Tavaan\\Engine\\Log\\LogServiceProvider"
+    ],
+    "requires": {
+        "php": ">=8.2",
+        "engines": [
+            "config"
+        ]
+    },
+    "config": {
+        "file": "config/log.php",
+        "key": "log"
+    },
+    "tables": [],
+    "commands": [],
+    "facade": {
+        "name": "Log",
+        "accessor": "log"
+    },
+    "docs": "docs/03-engines/log.md",
+    "class": "Tavaan\\Engine\\Log\\LogEngine"
 }

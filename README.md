@@ -114,7 +114,7 @@ php bin/tvn version    # نسخهٔ فریمورک
 - **۲ مخزن مرکزی** (Tavaan-Core + Tavaan-Engine-Core)
 - **۳ درگاه ارتباط** (Container + Events + EngineBus)
 - **PHP ≥ ۸.۲** مورد‌نیاز
-- **صفر‌وابستگی** Composer در زمان اجرا (autoloader خودنوشته)
+- **صفر‌وابستگی** در زمان اجرا (autoloader خودنوشته، بدون نیاز به مدیریت بسته بیرونی)
 
 ## مجوز
 

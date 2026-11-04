@@ -1,35 +1,35 @@
 {
-  "id": "tavaan.engine.http-client",
-  "type": "engine",
-  "name": "HttpClient",
-  "title_fa": "کلاینت HTTP",
-  "version": "0.0.1",
-  "namespace": "Tavaan\\Engine\\HttpClient\\",
-  "autoload": {
-    "psr-4": {
-      "Tavaan\\Engine\\HttpClient\\": "src/"
-    }
-  },
-  "providers": [
-    "Tavaan\\Engine\\HttpClient\\HttpClientServiceProvider"
-  ],
-  "requires": {
-    "php": ">=8.2",
-    "engines": [
-      "config",
-      "event"
-    ]
-  },
-  "config": {
-    "file": "config/http-client.php",
-    "key": "http-client"
-  },
-  "tables": [],
-  "commands": [],
-  "facade": {
-    "name": "Http",
-    "accessor": "http"
-  },
-  "docs": "docs/03-engines/http-client.md",
-  "class": "Tavaan\\Engine\\HttpClient\\HttpClientEngine"
+    "id": "tavaan.engine.http-client",
+    "type": "engine",
+    "name": "HttpClient",
+    "title_fa": "کلاینت HTTP",
+    "version": "0.0.1",
+    "namespace": "Tavaan\\Engine\\HttpClient\\",
+    "autoload": {
+        "namespace-map": {
+            "Tavaan\\Engine\\HttpClient\\": "src/"
+        }
+    },
+    "providers": [
+        "Tavaan\\Engine\\HttpClient\\HttpClientServiceProvider"
+    ],
+    "requires": {
+        "php": ">=8.2",
+        "engines": [
+            "config",
+            "event"
+        ]
+    },
+    "config": {
+        "file": "config/http-client.php",
+        "key": "http-client"
+    },
+    "tables": [],
+    "commands": [],
+    "facade": {
+        "name": "Http",
+        "accessor": "http"
+    },
+    "docs": "docs/03-engines/http-client.md",
+    "class": "Tavaan\\Engine\\HttpClient\\HttpClientEngine"
 }

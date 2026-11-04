@@ -1,35 +1,35 @@
 {
-  "id": "tavaan.engine.notification",
-  "type": "engine",
-  "name": "Notification",
-  "title_fa": "آگاه‌سازی",
-  "version": "0.0.1",
-  "namespace": "Tavaan\\Engine\\Notification\\",
-  "autoload": {
-    "psr-4": {
-      "Tavaan\\Engine\\Notification\\": "src/"
-    }
-  },
-  "providers": [
-    "Tavaan\\Engine\\Notification\\NotificationServiceProvider"
-  ],
-  "requires": {
-    "php": ">=8.2",
-    "engines": [
-      "config",
-      "event"
-    ]
-  },
-  "config": {
-    "file": "config/notification.php",
-    "key": "notification"
-  },
-  "tables": [],
-  "commands": [],
-  "facade": {
+    "id": "tavaan.engine.notification",
+    "type": "engine",
     "name": "Notification",
-    "accessor": "notification"
-  },
-  "docs": "docs/03-engines/notification.md",
-  "class": "Tavaan\\Engine\\Notification\\NotificationEngine"
+    "title_fa": "آگاه‌سازی",
+    "version": "0.0.1",
+    "namespace": "Tavaan\\Engine\\Notification\\",
+    "autoload": {
+        "namespace-map": {
+            "Tavaan\\Engine\\Notification\\": "src/"
+        }
+    },
+    "providers": [
+        "Tavaan\\Engine\\Notification\\NotificationServiceProvider"
+    ],
+    "requires": {
+        "php": ">=8.2",
+        "engines": [
+            "config",
+            "event"
+        ]
+    },
+    "config": {
+        "file": "config/notification.php",
+        "key": "notification"
+    },
+    "tables": [],
+    "commands": [],
+    "facade": {
+        "name": "Notification",
+        "accessor": "notification"
+    },
+    "docs": "docs/03-engines/notification.md",
+    "class": "Tavaan\\Engine\\Notification\\NotificationEngine"
 }

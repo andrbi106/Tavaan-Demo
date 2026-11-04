@@ -1,35 +1,35 @@
 {
-  "id": "tavaan.engine.event",
-  "type": "engine",
-  "name": "Event",
-  "title_fa": "رویداد و Outbox",
-  "version": "0.0.1",
-  "namespace": "Tavaan\\Engine\\Event\\",
-  "autoload": {
-    "psr-4": {
-      "Tavaan\\Engine\\Event\\": "src/"
-    }
-  },
-  "providers": [
-    "Tavaan\\Engine\\Event\\EventServiceProvider"
-  ],
-  "requires": {
-    "php": ">=8.2",
-    "engines": [
-      "container",
-      "config"
-    ]
-  },
-  "config": {
-    "file": "config/event.php",
-    "key": "event"
-  },
-  "tables": [],
-  "commands": [],
-  "facade": {
+    "id": "tavaan.engine.event",
+    "type": "engine",
     "name": "Event",
-    "accessor": "events"
-  },
-  "docs": "docs/03-engines/event.md",
-  "class": "Tavaan\\Engine\\Event\\EventEngine"
+    "title_fa": "رویداد و Outbox",
+    "version": "0.0.1",
+    "namespace": "Tavaan\\Engine\\Event\\",
+    "autoload": {
+        "namespace-map": {
+            "Tavaan\\Engine\\Event\\": "src/"
+        }
+    },
+    "providers": [
+        "Tavaan\\Engine\\Event\\EventServiceProvider"
+    ],
+    "requires": {
+        "php": ">=8.2",
+        "engines": [
+            "container",
+            "config"
+        ]
+    },
+    "config": {
+        "file": "config/event.php",
+        "key": "event"
+    },
+    "tables": [],
+    "commands": [],
+    "facade": {
+        "name": "Event",
+        "accessor": "events"
+    },
+    "docs": "docs/03-engines/event.md",
+    "class": "Tavaan\\Engine\\Event\\EventEngine"
 }

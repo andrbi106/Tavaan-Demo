@@ -41,11 +41,12 @@ use Tavaan\Core\Autoloading\AutoloaderRegistry;
 
 $autoloader = Autoloader::create(TVN_BASE_PATH);
 
-// نگاشت namespaceهای پایه (PSR-4)
+// نگاشت namespaceهای پایه (سبکِ تَوان — prefix → path)
 $autoloader->addNamespace('Tavaan\\Core\\', __DIR__ . '/');
 $autoloader->addNamespace('Tavaan\\Support\\', __DIR__ . '/Support/');
 $autoloader->addNamespace('Tavaan\\Engine\\', 'engines/*/src/');
-$autoloader->addNamespace('Tavaan\\EngineCore\\', 'vendor/andrbi106/tavaan-engine-core/src/');
+// Engine-Core در خودِ پروژه (نه vendor/) — ریشهٔ bootstrap.php دمو مسیر را اصلاح می‌کند.
+$autoloader->addNamespace('Tavaan\\EngineCore\\', 'engine-core/');
 
 $autoloader->register();
 $autoloader->lockPrefix('Tavaan\\Core\\');
@@ -59,7 +60,7 @@ if (is_file($configFile)) {
     /** @var array<string, mixed> $autoloadConfig */
     $autoloadConfig = require $configFile;
 
-    foreach ($autoloadConfig['psr-4'] ?? [] as $prefix => $paths) {
+    foreach ($autoloadConfig['namespace-map'] ?? [] as $prefix => $paths) {
         $autoloader->addNamespace((string) $prefix, $paths);
     }
 

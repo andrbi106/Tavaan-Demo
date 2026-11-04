@@ -88,8 +88,8 @@ final class EngineValidateCommand extends Command
                 $errors[] = $slug . ': version خارج از semver: ' . $version;
             }
 
-            // autoload psr-4 — دایرکتوری موجود (مسیرهای ../ نسبت به دایرکتوری موتور)
-            foreach ((array) ($data['autoload']['psr-4'] ?? []) as $prefix => $path) {
+            // autoload namespace-map — دایرکتوری موجود (مسیرهای ../ نسبت به دایرکتوری موتور)
+            foreach ((array) ($data['autoload']['namespace-map'] ?? []) as $prefix => $path) {
                 $full = (string) $engineDir . '/' . (string) $path;
                 if (!\is_dir($full)) {
                     $errors[] = $slug . ': دایرکتوری autoload مفقود: ' . (string) $path;

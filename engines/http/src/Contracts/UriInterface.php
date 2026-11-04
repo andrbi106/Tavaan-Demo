@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Tavaan\Engine\Http\Contracts;
 
 /**
- * قرارداد URI (RFC 3986) — داخلی، بدون psr/http-message.
+ * قرارداد URI (RFC 3986) — پیاده‌سازی داخلی تَوان، کاملاً خودکفا.
  *
  * @api 1.0
  * @see docs/03-engines/http.md

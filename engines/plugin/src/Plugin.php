@@ -11,7 +11,7 @@ use Tavaan\Engine\Plugin\Exceptions\PluginException;
  * Plugin — ارزش‌شیء افزونه (manifest پارس‌شده + وضعیت).
  *
  * manifest مطابق DOC-079 §3 اعتبارسنجی می‌شود (id/name/version/tavaan/
- * autoload.psr-4 الزامی؛ provider/permissions/hooks/signature/capabilities اختیاری).
+ * autoload.namespace-map الزامی؛ provider/permissions/hooks/signature/capabilities اختیاری).
  *
  * @api 1.0
  * @see docs/03-engines/plugin.md
@@ -23,7 +23,7 @@ final readonly class Plugin
 
     /**
      * @param array<string, mixed>  $manifest
-     * @param array<string, string> $psr4   prefix → مسیر نسبی (از manifest)
+     * @param array<string, string> $namespaceMap   prefix → مسیر نسبی (از manifest)
      * @param list<string>          $hooks
      * @param list<string>          $permissions
      * @param array<string, mixed>  $capabilities نرمال‌شده
@@ -37,7 +37,7 @@ final readonly class Plugin
         public string $authorEmail,
         public ?string $provider,
         public ?string $signature,
-        public array $psr4,
+        public array $namespaceMap,
         public array $hooks,
         public array $permissions,
         public array $capabilities,
@@ -71,10 +71,10 @@ final readonly class Plugin
 
         self::assertSchema($m, $dir);
 
-        $autoload = (array) ($m['autoload']['psr-4'] ?? []);
-        $psr4 = [];
+        $autoload = (array) ($m['autoload']['namespace-map'] ?? []);
+        $namespaceMap = [];
         foreach ($autoload as $prefix => $path) {
-            $psr4[\rtrim((string) $prefix, '\\') . '\\'] = \trim((string) $path, '/\\');
+            $namespaceMap[\rtrim((string) $prefix, '\\') . '\\'] = \trim((string) $path, '/\\');
         }
 
         $author = (array) ($m['author'] ?? []);
@@ -89,7 +89,7 @@ final readonly class Plugin
             authorEmail: (string) ($author['email'] ?? ''),
             provider: isset($m['provider']) && \is_string($m['provider']) && $m['provider'] !== '' ? $m['provider'] : null,
             signature: isset($m['signature']) && \is_string($m['signature']) ? $m['signature'] : null,
-            psr4: $psr4,
+            namespaceMap: $namespaceMap,
             hooks: \array_values(\array_filter((array) ($m['hooks'] ?? []), 'is_string')),
             permissions: \array_values(\array_filter((array) ($m['permissions'] ?? []), 'is_string')),
             capabilities: $capabilities,
@@ -110,7 +110,7 @@ final readonly class Plugin
     /** اولین prefix فضای‌نام (فضای‌نام اصلی افزونه). */
     public function namespace(): string
     {
-        return (string) (\array_key_first($this->psr4) ?? '');
+        return (string) (\array_key_first($this->namespaceMap) ?? '');
     }
 
     public function hasVendor(): bool
@@ -162,8 +162,8 @@ final readonly class Plugin
         if (\preg_match('/^\d+\.\d+\.\d+(-[0-9A-Za-z\-.]+)?(\+[0-9A-Za-z\-.]+)?$/', $version) !== 1) {
             $fail('version باید semver باشد');
         }
-        if (!isset($m['autoload']['psr-4']) || (array) $m['autoload']['psr-4'] === []) {
-            $fail('autoload.psr-4 الزامی است');
+        if (!isset($m['autoload']['namespace-map']) || (array) $m['autoload']['namespace-map'] === []) {
+            $fail('autoload.namespace-map الزامی است');
         }
         if (isset($m['provider']) && !\is_string($m['provider'])) {
             $fail('provider باید رشتهٔ class-string باشد');

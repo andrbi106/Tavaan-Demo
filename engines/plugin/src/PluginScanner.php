@@ -35,7 +35,7 @@ final class PluginScanner
     /**
      * اسکن همهٔ فایل‌های PHP یک دایرکتوری (بازگشتی).
      *
-     * 🔒 `vendor/` مستثنی است: autoload خودِ composer از require/include
+     * 🔒 `vendor/` مستثنی است: autoload خودِ وابستگی‌های افزونه از require/include
      * استفاده می‌کند و اسکن آن مثبت کاذب انبوه می‌سازد؛ یکپارچگی vendor با
      * hashهای plugins.lock محافظت می‌شود (DOC-079 §4).
      */

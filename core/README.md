@@ -38,7 +38,7 @@ Tavaan-Engine-Core (والد موتورها)
 | قرارداد | فایل |
 |---|---|
 | `ContainerInterface` | `Contracts/Container/ContainerInterface.php` |
-| `PsrContainerInterface` | `Contracts/Container/PsrContainerInterface.php` |
+| `ReadableContainerInterface` | `Contracts/Container/ReadableContainerInterface.php` |
 | `DispatcherInterface` | `Contracts/Events/DispatcherInterface.php` |
 | `EventSubscriber` | `Contracts/Events/EventSubscriber.php` |
 | `ShouldBroadcast` | `Contracts/Events/ShouldBroadcast.php` |
@@ -52,7 +52,7 @@ Tavaan-Engine-Core (والد موتورها)
 |---|---|---|
 | **Container** | `Container/Container.php` | DI کانتینر با reflection-based auto-resolution |
 | **Events** | `Events/EventDispatcher.php` | pub/sub event system |
-| **Autoloading** | `Autoloading/Autoloader.php` | PSR-4 + wildcard + path traversal prevention |
+| **Autoloading** | `Autoloading/Autoloader.php` | نگاشت prefix→path + wildcard + path traversal prevention |
 | **Application** | `Application/Application.php` | چرخهٔ عمر اپلیکیشن |
 | **Bootstrap** | `Bootstrap/*.php` | ۷ بوت‌استرپر (env, config, facades, providers, exceptions) |
 | **Provider** | `Provider/ServiceProvider.php` | کلاس پایه برای همهٔ Service Providerها |
@@ -73,7 +73,7 @@ src/
 │   ├── ApplicationInterface.php
 │   └── RuntimeMode.php              production/development/testing/console
 ├── Autoloading/
-│   ├── Autoloader.php               PSR-4 + wildcard + security
+│   ├── Autoloader.php               نگاشت prefix→path + wildcard + security
 │   ├── AutoloaderRegistry.php       global access
 │   └── AutoloadException.php
 ├── Bootstrap/
@@ -89,7 +89,7 @@ src/
 │   ├── Binding.php                  value object
 │   └── Lifetime.php                 enum: transient/singleton
 ├── Contracts/
-│   ├── Container/                   ContainerInterface, PsrContainerInterface
+│   ├── Container/                   ContainerInterface, ReadableContainerInterface
 │   ├── Events/                      DispatcherInterface + 4 more
 │   └── Support/                     Arrayable, Jsonable, Renderable, DeferrableProvider
 ├── Context/
@@ -128,14 +128,19 @@ src/
 
 ## نصب
 
+تَوان قانون **ZeroDependency** را رعایت می‌کند — کاملاً خودکفا، بدون وابستگی بیرونی. کلون و اجرا:
+
 ```bash
-composer require andrbi106/tavaan-core
+git clone https://github.com/andrbi106/Tavaan-Demo.git
+cd Tavaan-Demo
+cp .env.example .env
+php bin/tvn serve
 ```
 
 ## استفاده
 
 ```php
-require dirname(__DIR__) . '/vendor/andrbi106/tavaan-core/src/bootstrap.php';
+require dirname(__DIR__) . '/core/bootstrap.php';
 
 use Tavaan\Core\Application\ApplicationBuilder;
 

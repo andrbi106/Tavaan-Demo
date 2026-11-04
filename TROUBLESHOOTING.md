@@ -4,17 +4,29 @@
 
 ## خلاصه
 
+### مرحلهٔ ۱ — رفع خطاهای اجرایی
+
 | ردیف | نوع خطا | تعداد فایل | علت ریشه‌ای |
 |------|---------|-----------|-------------|
 | ۱ | خطای نحوی (Parse) | ۲ | وجود `*/` در داخل کامنت بلوک `/* */` |
 | ۲ | خطای نحوی (Parse) | ۱ | بک‌اسلشِ غیر‌escape‌شده در رشته |
 | ۳ | خطای نحوی (Parse) | ۲۰ | `return return` تکراری + `;;` |
-| ۴ | رابطِ PSR-11 مفقود | ۱ | وابستگی به `psr/container` بدون نصب Composer |
+| ۴ | وابستگی پنهان به رابط بیرونی | ۶ | نقض قانون ZeroDependency (manifest + رابط بیرونی) |
 | ۵ | مسیر ریشه اشتباه | ۱ | `dirname(__DIR__)` به‌جای `__DIR__` در ریشه |
 | ۶ | ارث‌بری از کلاس final | ۱ | `Container`.final، اما `Application` آن را extend می‌کرد |
 | ۷ | سازندهٔ مفقود | ۱ | `Container` سازنده نداشت اما `Application` آن را صدا می‌زد |
 
-**مجموع فایل‌های اصلاح‌شده:** ۲۶ + ۳ فایل جدید (stubهای PSR-11)
+### مرحلهٔ ۲ — اعمال کامل قانون ZeroDependency
+
+| تغییر | تعداد | شرح |
+|-------|-------|------|
+| حذف فایل manifest پکیج‌منیجر | ۲ | `core/composer.json`، `engine-core/composer.json` |
+| حذف stub رابط بیرونی | ۴ | `core/Psr11/*` (۳ فایل) + `PsrContainerInterface.php` |
+| تغییر کلید autoload `psr-4` → `namespace-map` | ۵۵ | `config/autoload.php` + ۵۲ `engine.json` + ۲ کد |
+| تغییر نام property `$psr4` → `$namespaceMap` | ۲ | `Plugin.php`، `PluginSandbox.php` |
+| بازنویسی کامنت‌ها | ۱۰+ | حذف اشاره به استانداردها/پکیج‌منیجر بیرونی |
+
+**مجموع:** پروژه اکنون کاملاً Self-contained است — هیچ فایل manifest، هیچ رابط بیرونی، هیچ ارجاعی به استانداردهای PHP-FIG یا ابزارهای مدیریت بسته وجود ندارد.
 **نتیجه:** اجرای موفق CLI (`info`, `version`, `engines`, `config`, `serve`) و HTTP (`/`, `/api`, `/engines`, `/info`)
 
 ---
@@ -132,15 +144,17 @@ in engines/queue/lang/en/queue.php on line 2
 
 ---
 
-## خطای ۴ — رابط PSR-11 مفقود (وابستگی پنهان به Composer)
+## خطای ۴ — وابستگی پنهان به رابط Container بیرونی (نقض ZeroDependency)
 
 ### فایل درگیر
-- `core/Contracts/Container/PsrContainerInterface.php`
+- `core/Contracts/Container/PsrContainerInterface.php` (حذف شد)
+- `core/composer.json` (حذف شد)
+- `engine-core/composer.json` (حذف شد)
 
 ### شرح
-README ادعا می‌کند «صفر‌وابستگی Composer در زمان اجرا»، اما `PsrContainerInterface` رابط `Psr\Container\ContainerInterface` (از بستهٔ `psr/container`) را extend می‌کند. چون autoloader خودنوشته است و `vendor/` وجود ندارد، بارگذاری این رابط با خطا مواجه می‌شود.
+README ادعا می‌کند «صفر‌وابستگی در زمان اجرا»، اما `PsrContainerInterface` یک رابط Container بیرونی (از بستهٔ `psr/container`) را extend می‌کرد. چون autoloader خودنوشته است و `vendor/` وجود ندارد، بارگذاری این رابط با خطا مواجه می‌شد.
 
-`core/composer.json` نیز وابستگی `psr/container: ^2.0` را اعلام کرده، اما چون Composer نصب نیست، این وابستگی هرگز برآورده نمی‌شود.
+`core/composer.json` نیز وابستگی `psr/container: ^2.0` را اعلام کرده بود — که با قانون ZeroDependency در تناقض مستقیم بود.
 
 ### خطای گزارش‌شده
 ```
@@ -148,22 +162,66 @@ PHP Fatal error: Uncaught Error: Interface "Psr\Container\ContainerInterface" no
 in core/Contracts/Container/PsrContainerInterface.php:15
 ```
 
-### راه‌حل
-ایجاد **stub محلی PSR-11** در پروژه، با اولویتِ نسخهٔ رسمی Composer (در صورت نصب):
+### راه‌حل نهایی — حذف کامل وابستگی (اعمال قانون ZeroDependency)
 
-**فایل‌های جدید:**
-- `core/Psr11/Container/ContainerInterface.php` (رابط PSR-11 اصلی: `get()` + `has()`)
-- `core/Psr11/Container/ContainerExceptionInterface.php`
-- `core/Psr11/Container/NotFoundExceptionInterface.php`
+به‌جای افزودن stub محلی، **تمام ارجاعات به رابط‌های بیرونی و فایل‌های manifest پکیج‌منیجر حذف شدند**:
 
-**اصلاح `config/autoload.php`:**
-```php
-// PSR-11 (stub محلی — فقط در صورت نبودِ نسخهٔ رسمی Composer)
-// vendor/ در ابتدا قرار می‌گیرد تا اگر composer نصب باشد، اولویت با آن باشد.
-'Psr\\Container\\'  => ['vendor/psr/container/src/', 'core/Psr11/Container/'],
+**۱) حذف فایل‌های manifest پکیج‌منیجر:**
+- `core/composer.json` — حذف شد
+- `engine-core/composer.json` — حذف شد
+
+**۲) بازطراحی رابط Container (بدون ارث از رابط بیرونی):**
+- `core/Contracts/Container/PsrContainerInterface.php` — حذف شد
+- `core/Contracts/Container/ReadableContainerInterface.php` — **فایل جدید**: رابط فقط‌خواندنی با `get()` و `has()`، کاملاً داخلی
+- `ContainerInterface` اکنون `ReadableContainerInterface` را extend می‌کند (نه رابط بیرونی)
+
+**۳) تغییر کلید نگاشت autoload:**
+```diff
+- 'psr-4' => [...]
++ 'namespace-map' => [...]
+```
+این تغییر در `config/autoload.php`، همهٔ ۵۲ `engine.json`، و کدهایی که آن را می‌خوانند اعمال شد.
+
+**۴) تغییر نام property در Plugin:**
+```diff
+- public array $psr4
++ public array $namespaceMap
 ```
 
-این رویکرد هم سازگاری PSR-11 را حفظ می‌کند و هم ادعای «صفر‌وابستگی» را برآورده می‌سازد.
+این رویکرد قانون ZeroDependency را **به‌طور کامل** برآورده می‌سازد — هیچ فایل manifest، هیچ رابط بیرونی، و هیچ اشاره‌ای به استانداردهای بیرونی در پروژه باقی نمانده است.
+
+---
+
+## بهبود — اعمال کامل قانون ZeroDependency
+
+علاوه بر رفع خطای ۴، یک بازبینی کامل برای حذف **هرگونه** اشاره به ابزارهای مدیریت بسته و استانداردهای بیرونی انجام شد:
+
+### فایل‌های حذف‌شده
+| فایل | علت |
+|------|------|
+| `core/composer.json` | manifest پکیج‌منیجر — نقض ZeroDependency |
+| `engine-core/composer.json` | manifest پکیج‌منیجر — نقض ZeroDependency |
+| `core/Psr11/Container/ContainerInterface.php` | stub رابط بیرونی (مرحلهٔ موقت) |
+| `core/Psr11/Container/ContainerExceptionInterface.php` | stub رابط بیرونی |
+| `core/Psr11/Container/NotFoundExceptionInterface.php` | stub رابط بیرونی |
+| `core/Contracts/Container/PsrContainerInterface.php` | رابطی که از رابط بیرونی ارث می‌برد |
+
+### فایل‌های جدید
+| فایل | نقش |
+|------|------|
+| `core/Contracts/Container/ReadableContainerInterface.php` | رابط فقط‌خواندنی داخلی (`get` + `has`) |
+
+### تغییر نام کلیدها و propertyها
+| قدیم | جدید | محل |
+|------|------|------|
+| `"psr-4"` | `"namespace-map"` | `config/autoload.php` + ۵۲ `engine.json` |
+| `$autoloadConfig['psr-4']` | `$autoloadConfig['namespace-map']` | `core/bootstrap.php` |
+| `$plugin->psr4` | `$plugin->namespaceMap` | `engines/plugin/src/Plugin.php` |
+| `$m['autoload']['psr-4']` | `$m['autoload']['namespace-map']` | `Plugin.php`, `EngineValidateCommand.php` |
+| `'psr-4' => [...]` | `'namespace-map' => [...]` | `ModuleTest.php` |
+
+### کامنت‌های بازنویسی‌شده
+همه کامنت‌هایی که به استانداردهای بیرونی یا پکیج‌منیجر اشاره داشتند، به عبارات داخلی تَوان بازنویسی شدند (مثلاً «سبکِ تَوان» به‌جای «PSR-4»).
 
 ---
 
@@ -320,7 +378,7 @@ php bin/tvn config     # پیکربندی موتورها
 
 ۲. **بررسی CI:** اکثر خطاهای بالا (به‌ویژه خطاهای نحوی و `return return`) با یک مرحلهٔ `php -l` در CI قابل شناسایی بودند.
 
-۳. **حذف وابستگی پنهان:** یا `psr/container` به‌عنوان وابستگی Composer واقعی نصب شود، یا stub محلی (مانند این راه‌حل) به‌عنوان بخش رسمی پروژه مستند شود.
+۳. **حفظ ZeroDependency:** قانون ZeroDependency اکنون به‌طور کامل اعمال شده است. در توسعه‌های آتی، مطمئن شوید هیچ فایل manifest پکیج‌منیجر و هیچ `use` از فضای‌نامِ بیرونی (مانند `Psr\...`) اضافه نشود. اگر به رابطی نیاز بود، آن را به‌صورت داخلی در `core/Contracts/` تعریف کنید.
 
 ۴. **بازبینی `final`:** بررسی اینکه آیا کلاس‌های دیگر `final` هم هستند که فرزندی آن‌ها extend می‌کند.
 

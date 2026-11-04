@@ -5,10 +5,13 @@
  *
  * نگاشت namespaceها برای autoloader تَوان.
  * این فایل توسط core/bootstrap.php خوانده می‌شود.
+ *
+ * تَوان قانون ZeroDependency را رعایت می‌کند — کاملاً خودکفا، بدون وابستگی بیرونی.
+ * کلید نگاشت `namespace-map` نام دارد (سبکِ تَوان).
  */
 
 return [
-    'psr-4' => [
+    'namespace-map' => [
         // هستهٔ فریمورک
         'Tavaan\\Core\\'    => ['core/'],
         'Tavaan\\Support\\' => ['core/Support/'],
@@ -22,10 +25,6 @@ return [
 
         // اپلیکیشن
         'App\\'             => ['app/src/'],
-
-        // PSR-11 (stub محلی — فقط در صورت نبودِ نسخهٔ رسمی Composer)
-        // vendor/ در ابتدا قرار می‌گیرد تا اگر composer نصب باشد، اولویت با آن باشد.
-        'Psr\\Container\\'  => ['vendor/psr/container/src/', 'core/Psr11/Container/'],
     ],
     'classmap' => [],
     'files' => [

@@ -10,7 +10,7 @@ use Tavaan\Engine\Console\Command;
  * `tvn style:check [--fix]` — wrapper صادقانهٔ PHP-CS-Fixer (DoD §1.1).
  *
  * فریمورک در production صفر وابستگی است؛ CS-Fixer یک dev-tool است که با
- * `composer install` (require-dev) یا phar نصب می‌شود. این دستور ابزار را
+ * دانلود phar یا ابزارهای پکیج‌منیجر محیط توسعه نصب می‌شود. این دستور ابزار را
  * در مسیرهای استاندارد جست‌وجو و با config موجود
  * (`.php-cs-fixer.dist.php`) اجرا می‌کند؛ در نبودِ ابزار، راهنمای نصب
  * می‌دهد و **هرگز سکوتِ موفقیت‌آمیزِ کاذب** ندارد (exit 2 = محیط ناقص).
@@ -41,7 +41,7 @@ final class StyleCheckCommand extends Command
         $fixer = $this->findFixer($base);
         if ($fixer === null) {
             $this->warn('  ⚠ php-cs-fixer نصب نیست — style:check اجرا نشد.');
-            $this->line('    نصب: composer install (require-dev) یا:');
+            $this->line('    نصب (یکی از راه‌ها):');
             $this->line('      wget https://cs.symfony.com/download/php-cs-fixer-v3.phar -O tools/php-cs-fixer.phar');
             $this->line('    config قوانین DOC-011 موجود است: .php-cs-fixer.dist.php');
 
